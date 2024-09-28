@@ -1,0 +1,14 @@
+1. npm i -g @nestjs/cli
+2. nest new sparkaligner
+3. npm i @nestjs/typeorm typeorm mysql2
+==================
+data base connection 
+
+cmd => mysql -u root -p
+type your password 
+CREATE DATABASE sparkalignerdb;
+USE sparkalignerdatabase;
+SHOW TABLES;
+
+npx typeorm migration:generate -n CreateTables
+npx typeorm migration:run
