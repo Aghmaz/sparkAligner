@@ -21,12 +21,12 @@ export const typeOrmModuleOptions: TypeOrmModuleOptions = {
 };
 
 export const OrmConfig = {
-  migrations: ["src/config/1698314833693-sparkaligner.ts"],
+  migrations: ["src/migration/*.ts"], 
   cli: {
-      migrationsDir: "src/config/1698314833693-sparkaligner.ts"
+    migrationsDir: "src/migration",
   },
-  // migrationsRun: true,
 };
+
 
 export const AppDataSource = new DataSource({
   type: 'mysql',
@@ -35,6 +35,8 @@ export const AppDataSource = new DataSource({
   username: process.env.DB_USERNAME,
   database: process.env.DB_NAME,
   password: process.env.DB_PASSWORD,
+  migrations: ['src/migration/*.ts'], 
+  entities: ['src/**/*.entity.ts'],
   synchronize: false,
 });
 
